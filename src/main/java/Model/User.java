@@ -3,7 +3,7 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-public class User<sout> {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
@@ -16,8 +16,9 @@ public class User<sout> {
     private String userPic;
     @Column(length = 500)
     private String userAddress;
+    private String userType;
 
-    public User(int userId, String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAddress) {
+    public User(int userId, String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAddress,String userType) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
@@ -25,15 +26,19 @@ public class User<sout> {
         this.userPhone = userPhone;
         this.userPic = userPic;
         this.userAddress = userAddress;
+        this.userType = userType;
+
     }
 
-    public User(String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAddress) {
+    public User(String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAddress,String userType) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userPhone = userPhone;
         this.userPic = userPic;
         this.userAddress = userAddress;
+        this.userType = userType;
+
     }
 
     public User() {
@@ -93,6 +98,14 @@ public class User<sout> {
 
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     @Override

@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
                 String phoneno=request.getParameter("user_phone");
                 String address=request.getParameter("user_address");
 
-                User user=new User(name,email,password,phoneno,"default.jpg",address);
+                User user=new User(name,email,password,phoneno,"default.jpg",address,"normal");
                 Session hibernateSession= FactoryProvider.getFactory().openSession();
                 Transaction tx=hibernateSession.beginTransaction();
                 int userId=(int) hibernateSession.save(user);
